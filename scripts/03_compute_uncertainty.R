@@ -41,8 +41,11 @@ ci_low  <- qbeta(0.025, a_post, b_post)
 ci_high <- qbeta(0.975, a_post, b_post)
 
 # 7) assemble outputs
+y_true <- as.integer(Y[idx_test])
+
 res <- tibble(
-  row_id_test = idx_test,
+  idx = idx_test,
+  y_true = y_true,
   p_hat = p_hat,
   entropy = entropy,
   ess = ess,
